@@ -8,7 +8,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             alignment: Alignment.center,
@@ -50,7 +50,8 @@ class LoginScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 20, color: Colors.lightBlue),
                   ),
                   Container(
-                    child: buildBuyButton(),
+                    alignment: Alignment.center,
+                    child: buildLoginButton(context),
                   )
                 ],
               ),
@@ -61,10 +62,10 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget buildBuyButton() {
+  Widget buildLoginButton(context) {
     return InkWell(
       onTap: () {
-        print("클릭됨");
+        Navigator.pushNamed(context, '/catalog');
       },
       child: Container(
         width: 270,

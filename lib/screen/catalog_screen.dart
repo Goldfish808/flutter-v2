@@ -6,7 +6,7 @@ class CatalogScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       body: ListView(
         children: [
           Column(
@@ -56,11 +56,21 @@ class CatalogScreen extends StatelessWidget {
     );
   }
 
-  AppBar buildAppBar() {
+  AppBar buildAppBar(context) {
     return AppBar(
       backgroundColor: Color(0xff3860c4),
       leading: Icon(Icons.menu_rounded, size: 40),
-      actions: [Icon(Icons.shopping_cart, size: 50), SizedBox(width: 10)],
+      actions: [
+        Container(
+          width: 80,
+          child: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/cart');
+            },
+            icon: Icon(Icons.shopping_cart, size: 40),
+          ),
+        )
+      ],
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(50.0),
         child: Padding(

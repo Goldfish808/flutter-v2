@@ -2,9 +2,14 @@ import 'package:cartlist_lab/screen/cart_screen.dart';
 import 'package:cartlist_lab/screen/catalog_screen.dart';
 import 'package:cartlist_lab/screen/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,8 +23,8 @@ class MyApp extends StatelessWidget {
       initialRoute: "/login",
       routes: {
         "/login": (context) => LoginScreen(),
-        "/home": (context) => CartScreen(),
-        "/category": (context) => CatalogScreen()
+        "/cart": (context) => CartScreen(),
+        "/catalog": (context) => CatalogScreen()
       },
     );
   }
